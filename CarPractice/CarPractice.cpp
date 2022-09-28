@@ -4,16 +4,6 @@
 #include <iostream>
 #include "Car.h"
 #include <string>
-void CarSpecs(Car car)
-{
-	std::cout << "Make " << car.make << std::endl
-		<< "Model: " << car.model << std::endl
-		<< "Doors: " << car.doors << std::endl
-		<< "Mileage: " << car.mileage << std::endl
-		<< "MPG: " << car.mpg << std::endl
-		<< "Petrol: " << car.petrol << std::endl
-		<< " " << std::endl;
-}
 int main()
 {
 	Car Audi;
@@ -22,7 +12,7 @@ int main()
 	Audi.doors = 3;
 	Audi.mileage = 8000.0f;
 	Audi.mpg = 200.0f;
-	Audi.petrol = 1.5f;
+	Audi.petrol = 70.0f;
 
 	Car Volkswagon;
 	Volkswagon.make = "Volkswagon";
@@ -30,7 +20,7 @@ int main()
 	Volkswagon.doors = 5;
 	Volkswagon.mileage = 5000.0f;
 	Volkswagon.mpg = 250;
-	Volkswagon.petrol = 2.0f;
+	Volkswagon.petrol = 50.0f;
 
 	Car Ford;
 	Ford.make = "Ford";
@@ -38,9 +28,20 @@ int main()
 	Ford.doors = 3;
 	Ford.mileage = 10000.0f;
 	Ford.mpg = 190;
-	Ford.petrol = 1.3f;
+	Ford.petrol = 30.0f;
 
-	CarSpecs(Audi);
-	CarSpecs(Volkswagon);
-	CarSpecs(Ford);
+	Car testCar("Tester", "Model 3", 5, 140);
+	//Audi.CarSpecs();
+	//Volkswagon.CarSpecs();
+	//Ford.CarSpecs();
+
+	Audi.Drive(13000);
+	Audi.Drive(1001);
+
+	testCar.CarSpecs();
+
+	//Volkswagon.Drive(200);
+	//Volkswagon.Drive(100);
+	//Ford.Drive(350);
+	//Ford.Drive(200);
 }

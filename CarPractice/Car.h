@@ -3,6 +3,15 @@
 class Car
 {
 public:
+
+	Car();
+	Car(std::string newName, std::string newModel, int newDoors, float newMpg);
+
+	~Car();
+
+	void CarSpecs(); 
+	void Drive(float drive);
+
 	//settings
 	std::string make;
 	std::string model;
