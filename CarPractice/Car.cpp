@@ -9,26 +9,24 @@ Car::Car()
 	, mpg(0)
 	,petrol(0)
 {
-	std::cout << "Car constructed" << std::endl
-		<< "" << std::endl;
+	std::cout << "Car constructed" << std::endl;
 }
 
-Car::Car(std::string newName, std::string newModel, int newDoors, float newMpg)
+Car::Car(std::string newName, std::string newModel, int newDoors, float newMpg, int newSerialNum)
 	: make(newName)
 	, model(newModel)
 	, doors(newDoors)
 	, mpg(newMpg)
+	, serialNum(newSerialNum)
 	, mileage(0)
 	, petrol(0)
 {
-	std::cout << "Car construced with parameters" << std::endl
-		<< "" << std::endl;
+	std::cout << "Car construced with parameters" << std::endl;
 }
 
 Car::~Car()
 {
-	std::cout << "Car destroyed: " << make << ": " << model << std::endl
-		<< "" << std::endl;
+	std::cout << "Car destroyed: " << make << ": " << model << std::endl;
 }
 
 void Car::CarSpecs()
@@ -39,6 +37,7 @@ void Car::CarSpecs()
 		<< "Mileage: " << mileage << std::endl
 		<< "MPG: " << mpg << std::endl
 		<< "Petrol: " << petrol << std::endl
+		<< "Serial Number: " << serialNum << std::endl
 		<< " " << std::endl;
 }
 

@@ -4,8 +4,15 @@
 #include <iostream>
 #include "Car.h"
 #include <string>
+#include <vector>
+#include <time.h>
+#include <cstdlib>
+#include <map>
+
+
 int main()
 {
+
 	Car Audi;
 	Audi.make = "Audi";
 	Audi.model = "tt";
@@ -13,6 +20,7 @@ int main()
 	Audi.mileage = 8000.0f;
 	Audi.mpg = 200.0f;
 	Audi.petrol = 70.0f;
+	Audi.serialNum = 100;
 
 	Car Volkswagon;
 	Volkswagon.make = "Volkswagon";
@@ -21,6 +29,7 @@ int main()
 	Volkswagon.mileage = 5000.0f;
 	Volkswagon.mpg = 250;
 	Volkswagon.petrol = 50.0f;
+	Volkswagon.serialNum = 101;
 
 	Car Ford;
 	Ford.make = "Ford";
@@ -29,19 +38,35 @@ int main()
 	Ford.mileage = 10000.0f;
 	Ford.mpg = 190;
 	Ford.petrol = 30.0f;
+	Ford.serialNum = 102;
 
-	Car testCar("Tester", "Model 3", 5, 140);
-	//Audi.CarSpecs();
-	//Volkswagon.CarSpecs();
-	//Ford.CarSpecs();
+	Car testCar("Tester", "Model 3", 5, 140, 103);
+	
+	std::vector<Car> carVector;
+	carVector.push_back(Audi);
+	carVector.push_back(Volkswagon);
+	carVector.push_back(Ford);
+	carVector.push_back(testCar);
 
-	Audi.Drive(13000);
-	Audi.Drive(1001);
+	/*for (size_t i = 0; i < carVector.size(); i++)
+	{
+		carVector[i].CarSpecs();
+	}*/
 
-	testCar.CarSpecs();
+	std::map<int, Car> carList;
+	carList[Audi.serialNum] = Audi;
+	carList[Volkswagon.serialNum] = Volkswagon;
+	carList[Ford.serialNum] = Ford;
+	carList[testCar.serialNum] = testCar;
 
-	//Volkswagon.Drive(200);
-	//Volkswagon.Drive(100);
-	//Ford.Drive(350);
-	//Ford.Drive(200);
+	int userResponse = 0;
+	std::cout << "Choose a car serial number you would like to see: " << std::endl;
+	std::cin >> userResponse;
+
+	if (carList.find(userResponse) != carList.end())
+	{
+		carList[userResponse].CarSpecs();
+	}
+	
+	
 }
